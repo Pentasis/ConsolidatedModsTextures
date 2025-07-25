@@ -36,42 +36,65 @@ namespace ConsolidatedMods.Textures
 
         public static void DrawIndicator(Command __instance, Vector2 topLeft)
         {
-
             Command activeDesignator = __instance;
-
             if (__instance is Designator_Dropdown dropdownDesignator)
                 activeDesignator = Traverse.Create(dropdownDesignator).Field<Designator>("activeDesignator").Value;
 
             if (!(activeDesignator is Designator_Build buildDesignator) || !(buildDesignator.PlacingDef is ThingDef currentThingDef)) return;
 
-
             if (currentThingDef.ConnectToPower)
             {
-                GUI.DrawTexture(new Rect(x: topLeft.x + __instance.GetWidth(maxWidth: float.MaxValue) - PowerIconOffset, y: topLeft.y, width: IconSize, height: IconSize), image: powerIcon, ScaleMode.ScaleToFit);
-
+                DrawPowerIcon(__instance, topLeft);
             }
             else if (currentThingDef.GetCompProperties<CompProperties_Refuelable>() is CompProperties_Refuelable refuelProperties && refuelProperties.fuelFilter.AllowedThingDefs.Any())
             {
-                ThingDef fuelDef = refuelProperties.fuelFilter.AllowedThingDefs.First();
-                string iconPath = GetFuelIconPath(fuelDef);
+                DrawFuelIcon(__instance, topLeft, currentThingDef);
+            }
+        }
 
-                if (!fuelIcon.ContainsKey(iconPath))
-                {
-                    Texture2D texture = ContentFinder<Texture2D>.Get(itemPath: iconPath, reportFailure: false);
-                    if (texture != null)
-                    {
-                        fuelIcon.Add(iconPath, texture);
-                    }
-                    else
-                    {
-                        Log.Warning($"PowerIndicators: Fuel icon texture not found for path '{iconPath}'.");
-                    }
-                }
+        private static void DrawPowerIcon(Command __instance, Vector2 topLeft)
+        {
+            GUI.DrawTexture(
+                new Rect(
+                    x: topLeft.x + __instance.GetWidth(maxWidth: float.MaxValue) - PowerIconOffset,
+                    y: topLeft.y,
+                    width: IconSize,
+                    height: IconSize),
+                image: powerIcon,
+                ScaleMode.ScaleToFit);
+        }
 
-                if (fuelIcon.TryGetValue(iconPath, out Texture2D fuelTexture) && fuelTexture != null)
+        private static void DrawFuelIcon(Command __instance, Vector2 topLeft, ThingDef currentThingDef)
+        {
+            var refuelProperties = currentThingDef.GetCompProperties<CompProperties_Refuelable>();
+            if (refuelProperties == null || !refuelProperties.fuelFilter.AllowedThingDefs.Any()) return;
+
+            ThingDef fuelDef = refuelProperties.fuelFilter.AllowedThingDefs.First();
+            string iconPath = GetFuelIconPath(fuelDef);
+
+            if (!fuelIcon.ContainsKey(iconPath))
+            {
+                Texture2D texture = ContentFinder<Texture2D>.Get(itemPath: iconPath, reportFailure: false);
+                if (texture != null)
                 {
-                    GUI.DrawTexture(new Rect(x: topLeft.x + __instance.GetWidth(maxWidth: float.MaxValue) - FuelIconOffset, y: topLeft.y, width: IconSize, height: IconSize), image: fuelTexture, ScaleMode.ScaleToFit);
+                    fuelIcon.Add(iconPath, texture);
                 }
+                else
+                {
+                    Log.Warning($"PowerIndicators: Fuel icon texture not found for path '{iconPath}'.");
+                }
+            }
+
+            if (fuelIcon.TryGetValue(iconPath, out Texture2D fuelTexture) && fuelTexture != null)
+            {
+                GUI.DrawTexture(
+                    new Rect(
+                        x: topLeft.x + __instance.GetWidth(maxWidth: float.MaxValue) - FuelIconOffset,
+                        y: topLeft.y,
+                        width: IconSize,
+                        height: IconSize),
+                    image: fuelTexture,
+                    ScaleMode.ScaleToFit);
             }
         }
 
