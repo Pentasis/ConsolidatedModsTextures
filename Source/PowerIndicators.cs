@@ -119,7 +119,14 @@ namespace ConsolidatedMods.Textures
             if (!fuelGraphic.path.NullOrEmpty())
                 return fuelGraphic.path;
 
-            return fuelDef.graphicData?.texPath ?? fireSubGraphics.RandomElement().path;
+            if (fuelDef.graphicData?.texPath != null)
+                return fuelDef.graphicData.texPath;
+
+            if (fireSubGraphics != null && fireSubGraphics.Length > 0)
+                return fireSubGraphics.RandomElement().path;
+
+            Log.Warning("PowerIndicators: fireSubGraphics is null or empty, cannot provide fallback path.");
+            return string.Empty;
         }
     }
 }
