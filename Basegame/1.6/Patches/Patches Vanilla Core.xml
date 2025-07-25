@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+<Operation Class="XmlExtensions.UseSettings">
+		<modId>cucumpear.stonetweaksvanilla</modId>
+		<keys>
+			<li>Col1</li>
+			<li>Col2</li>
+			<li>Col3</li>
+			<li>Col4</li>
+			<li>Col5</li>
+		</keys>
+		<defaultValues>
+			<li>87,71,63</li>
+			<li>75,84,92</li>
+			<li>232,225,202</li>
+			<li>64,64,64</li>
+			<li>255,255,255</li>
+		</defaultValues>
+
+    <apply>
+	<Operation Class="PatchOperationReplace">
+		  <xpath>*/ThingDef[defName = "Sandstone"]/graphicData/color</xpath>
+		  <value><color>({Col1})</color></value>
+		</Operation>
+		<Operation Class="PatchOperationReplace">
+		  <xpath>*/ThingDef[defName = "ChunkSandstone"]/graphicData/color</xpath>
+		  <value><color>({Col1})</color></value>
+		</Operation>
+		<Operation Class="PatchOperationReplace">
+		  <xpath>*/ThingDef[defName = "BlocksSandstone"]/graphicData/color</xpath>
+		  <value><color>({Col1})</color></value>
+		</Operation>
+		<Operation Class="PatchOperationReplace">
+		  <xpath>*/ThingDef[defName = "BlocksSandstone"]/stuffProps/color</xpath>
+		  <value><color>({Col1})</color></value>
+		</Operation>
+		<Operation Class="PatchOperationReplace">
+		  <xpath>*/TerrainDef[defName = "TileSandstone"]/color</xpath>
+		  <value><color>({Col1})</color></value>
+		</Operation>
+		<Operation Class="PatchOperationReplace">
+		  <xpath>*/TerrainDef[defName = "FlagstoneSandstone"]/color</xpath>
+		  <value><color>({Col1})</color></value>
+		</Operation>
+		
+		<Operation Class="PatchOperationReplace">
+		  <xpath>*/ThingDef[defName = "Granite"]/graphicData/color</xpath>
+		  <value><color>({Col2})</color></value>
+		</Operation>
+		<Operation Class="PatchOperationReplace">
+		  <xpath>*/ThingDef[defName = "ChunkGranite"]/graphicData/color</xpath>
+		  <value><color>({Col2})</color></value>
+		</Operation>
+		<Operation Class="PatchOperationReplace">
+		  <xpath>*/ThingDef[defName = "BlocksGranite"]/graphicData/color</xpath>
+		  <value><color>({Col2})</color></value>
+		</Operation>
+		<Operation Class="PatchOperationReplace">
+		  <xpath>*/ThingDef[defName = "BlocksGranite"]/stuffProps/color</xpath>
+		  <value><color>({Col2})</color></value>
+		</Operation>
+		<Operation Class="PatchOperationReplace">
+		  <xpath>*/TerrainDef[defName = "TileGranite"]/color</xpath>
+		  <value><color>({Col2})</color></value>
+		</Operation>
+		<Operation Class="PatchOperationReplace">
+		  <xpath>*/TerrainDef[defName = "FlagstoneGranite"]/color</xpath>
+		  <value><color>({Col2})</color></value>
+		</Operation>
+		
+		<Operation Class="PatchOperationReplace">
+		  <xpath>*/ThingDef[defName = "Limestone"]/graphicData/color</xpath>
+		  <value><color>({Col3})</color></value>
+		</Operation>
+		<Operation Class="PatchOperationReplace">
+		  <xpath>*/ThingDef[defName = "ChunkLimestone"]/graphicData/color</xpath>
+		  <value><color>({Col3})</color></value>
+		</Operation>
+		<Operation Class="PatchOperationReplace">
+		  <xpath>*/ThingDef[defName = "BlocksLimestone"]/graphicData/color</xpath>
+		  <value><color>({Col3})</color></value>
+		</Operation>
+		<Operation Class="PatchOperationReplace">
+		  <xpath>*/ThingDef[defName = "BlocksLimestone"]/stuffProps/color</xpath>
+		  <value><color>({Col3})</color></value>
+		</Operation>
+		<Operation Class="PatchOperationReplace">
+		  <xpath>*/TerrainDef[defName = "TileLimestone"]/color</xpath>
+		  <value><color>({Col3})</color></value>
+		</Operation>
+		<Operation Class="PatchOperationReplace">
+		  <xpath>*/TerrainDef[defName = "FlagstoneLimestone"]/color</xpath>
+		  <value><color>({Col3})</color></value>
+		</Operation>
+		
+		<Operation Class="PatchOperationReplace">
+		  <xpath>*/ThingDef[defName = "Slate"]/graphicData/color</xpath>
+		  <value><color>({Col4})</color></value>
+		</Operation>
+		<Operation Class="PatchOperationReplace">
+		  <xpath>*/ThingDef[defName = "ChunkSlate"]/graphicData/color</xpath>
+		  <value><color>({Col4})</color></value>
+		</Operation>
+		<Operation Class="PatchOperationReplace">
+		  <xpath>*/ThingDef[defName = "BlocksSlate"]/graphicData/color</xpath>
+		  <value><color>({Col4})</color></value>
+		</Operation>
+		<Operation Class="PatchOperationReplace">
+		  <xpath>*/ThingDef[defName = "BlocksSlate"]/stuffProps/color</xpath>
+		  <value><color>({Col4})</color></value>
+		</Operation>
+		<Operation Class="PatchOperationReplace">
+		  <xpath>*/TerrainDef[defName = "TileSlate"]/color</xpath>
+		  <value><color>({Col4})</color></value>
+		</Operation>
+		<Operation Class="PatchOperationReplace">
+		  <xpath>*/TerrainDef[defName = "FlagstoneSlate"]/color</xpath>
+		  <value><color>({Col4})</color></value>
+		</Operation>
+		
+		<Operation Class="PatchOperationReplace">
+		  <xpath>*/ThingDef[defName = "Marble"]/graphicData/color</xpath>
+		  <value><color>({Col5})</color></value>
+		</Operation>
+		<Operation Class="PatchOperationReplace">
+		  <xpath>*/ThingDef[defName = "ChunkMarble"]/graphicData/color</xpath>
+		  <value><color>({Col5})</color></value>
+		</Operation>
+		<Operation Class="PatchOperationReplace">
+		  <xpath>*/ThingDef[defName = "BlocksMarble"]/graphicData/color</xpath>
+		  <value><color>({Col5})</color></value>
+		</Operation>
+		<Operation Class="PatchOperationReplace">
+		  <xpath>*/ThingDef[defName = "BlocksMarble"]/stuffProps/color</xpath>
+		  <value><color>({Col5})</color></value>
+		</Operation>
+		<Operation Class="PatchOperationReplace">
+		  <xpath>*/TerrainDef[defName = "TileMarble"]/color</xpath>
+		  <value><color>({Col5})</color></value>
+		</Operation>
+		<Operation Class="PatchOperationReplace">
+		  <xpath>*/TerrainDef[defName = "FlagstoneMarble"]/color</xpath>
+		  <value><color>({Col5})</color></value>
+		</Operation>
+		</apply>
+	</Operation>
+</Patch>

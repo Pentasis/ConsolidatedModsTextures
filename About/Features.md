@@ -2,7 +2,11 @@
 Original by erdelf (link)
 Add an indicator on Building-Gizmos when that building needs power or fuel.
 
-- CCP Stone tweaks
+### Stonecolour tweaks
+Original by cucumpear (link)
+Some small tweaks to the vanilla stones (granite, slate etc.) to make them more beautiful.
+
+
 - Selected Reconnector
 - no power wires
 - Auto Links
