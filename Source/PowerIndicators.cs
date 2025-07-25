@@ -36,20 +36,20 @@ namespace ConsolidatedMods.Textures
 
             if (currentThingDef.ConnectToPower)
             {
-                GUI.DrawTexture(new Rect(x: topLeft.x + __instance.GetWidth(maxWidth: float.MaxValue) - 32f / 3 * 2 / 4 * 3, y: topLeft.y, width: 32f / 3 * 2, height: 32f / 3 * 2), image: power, ScaleMode.ScaleToFit);
+                GUI.DrawTexture(new Rect(x: topLeft.x + __instance.GetWidth(maxWidth: float.MaxValue) - 32f / 3 * 2 / 4 * 3, y: topLeft.y, width: 32f / 3 * 2, height: 32f / 3 * 2), image: powerIcon, ScaleMode.ScaleToFit);
 
             }
-            else if (currentThingDef.GetCompProperties<CompProperties_Refuelable>() is CompProperties_Refuelable refuelProps && refuelProps.fuelFilter.AllowedThingDefs.Any())
+            else if (currentThingDef.GetCompProperties<CompProperties_Refuelable>() is CompProperties_Refuelable refuelProperties && refuelProperties.fuelFilter.AllowedThingDefs.Any())
             {
-                ThingDef def = refuelProps.fuelFilter.AllowedThingDefs.First();
-                Graphic g = def.graphic;
-                string path = g is Graphic_Collection gc ? Traverse.Create(root: gc).Field(name: "subGraphics").GetValue<Graphic[]>().Last().path : g.path;
-                if (path.NullOrEmpty())
-                    path = def.graphicData != null ? def.graphicData.texPath : Traverse.Create(root: ThingDefOf.Fire.graphic).Field(name: "subGraphics").GetValue<Graphic[]>().RandomElement().path;
-                if (!fuel.ContainsKey(key: path))
-                    fuel.Add(key: path, value: ContentFinder<Texture2D>.Get(itemPath: path));
+                ThingDef fuelDef = refuelProperties.fuelFilter.AllowedThingDefs.First();
+                Graphic fuelGraphic = fuelDef.graphic;
+                string iconPath = fuelGraphic is Graphic_Collection graphicCollection ? Traverse.Create(root: graphicCollection).Field(name: "subGraphics").GetValue<Graphic[]>().Last().path : fuelGraphic.path;
+                if (iconPath.NullOrEmpty())
+                    iconPath = fuelDef.graphicData != null ? fuelDef.graphicData.texPath : Traverse.Create(root: ThingDefOf.Fire.graphic).Field(name: "subGraphics").GetValue<Graphic[]>().RandomElement().path;
+                if (!fuelIcon.ContainsKey(key: iconPath))
+                    fuelIcon.Add(key: iconPath, value: ContentFinder<Texture2D>.Get(itemPath: iconPath));
 
-                GUI.DrawTexture(new Rect(x: topLeft.x + __instance.GetWidth(maxWidth: float.MaxValue) - 32f / 4 * 3, y: topLeft.y, width: 32f / 3 * 2, height: 32f / 3 * 2), image: fuel[path], ScaleMode.ScaleToFit);
+                GUI.DrawTexture(new Rect(x: topLeft.x + __instance.GetWidth(maxWidth: float.MaxValue) - 32f / 4 * 3, y: topLeft.y, width: 32f / 3 * 2, height: 32f / 3 * 2), image: fuelIcon[iconPath], ScaleMode.ScaleToFit);
             }
         }
     }
