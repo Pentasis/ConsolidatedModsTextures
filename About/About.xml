@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-	<packageId>Pentasis.ConsolidatedMods.Medical</packageId>
-	<name>Consolidated Mods: Medical</name>
-	<description>A collection of changes and tweaks to things medical related.</description>
+	<packageId>Pentasis.ConsolidatedMods.Textures</packageId>
+	<name>Consolidated Mods: Textures</name>
+	<description>A collection of changes and tweaks to textures and GUI.</description>
 	<author>Pentasis (Bert Visser)</author>
 	<modVersion>1.0.0</modVersion>
 	<url></url>

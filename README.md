@@ -12,6 +12,8 @@ Eventually, that single mod became a bit of a behemoth. So, I've carved it up in
 
 A few mates persuaded me to publish them, so here we are. I'm only publishing the modules where I've rewritten the code from the ground up, so you can be sure no code was simply copied from other authors. However, the *ideas* were often inspired by their brilliant work, and I've done my best to credit them accordingly. If I've missed anyone, please do give me a nudge so I can correct the oversight!
 
+No AI was used to write code, but I did use AI to generate the thumbnail image.
+
 ## About Consolidated Mods: Textures
 
 This module is all about the visuals. A fresh coat of paint for your colony. It is purely cosmetic and focuses on two things:
@@ -26,7 +28,6 @@ Rest assured, it changes absolutely nothing about the gameplay itself. It's all 
 List of changes and additions made by this mod, with a link to the (original !) mods where I got the idea from.
 
 - Power Indicators
-- Architect Icons
 - Animal Variety Coats
 - CCP Stone tweaks
 - Selected Reconnector

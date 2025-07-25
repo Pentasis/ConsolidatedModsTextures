@@ -4,7 +4,7 @@
 		<TargetFramework>net480</TargetFramework>
 		<PlatformTarget>x64</PlatformTarget>
 
-		<!-- Modify [RootNamespace], [AssemblyName], [OutputPath], [VersionPrefix] -->
+		<!-- Mod specific stuff -->
 		<RootNamespace>ConsolidatedMods.Textures</RootNamespace>
 		<AssemblyName>ConsolidatedModsTextures</AssemblyName>
 		<OutputPath>../Basegame/1.6/Assemblies</OutputPath>
@@ -16,22 +16,40 @@
 		<DebugSymbols>false</DebugSymbols>
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 
-		<RimWorldPath Condition="'$(RimWorldPath)' == '' AND '$(OS)' == 'Windows_NT'">../../../RimWorldWin64_Data/Managed</RimWorldPath>
-        <RimWorldPath Condition="'$(RimWorldPath)' == '' AND '$(OS)' != 'Windows_NT'">../../../RimWorldLinux_Data/Managed</RimWorldPath>
+		<RimWorldPath Condition="'$(RimWorldPath)' == '' AND '$(OS)' == 'Windows_NT'">G:/SteamLibrary/steamapps/common/RimWorld/RimWorldWin64_Data/Managed</RimWorldPath>
+        <!-- <RimWorldPath Condition="'$(RimWorldPath)' == '' AND '$(OS)' != 'Windows_NT'">../../../RimWorldLinux_Data/Managed</RimWorldPath> -->
 	</PropertyGroup>
 
- 	<ItemGroup>
-	 	<!-- Mod -->
-	 	<Compile Include="../Source/*" />
-		
-	 	<!-- Rimworld -->
-	 	<Reference Include="$(RimWorldPath)/*.dll">
+	<ItemGroup>
+		<!-- Mod source files -->
+		<Compile Include="../Source/*" />
+	
+		<!-- RimWorld core assemblies -->
+		<Reference Include="Assembly-CSharp">
+			<HintPath>$(RimWorldPath)/Assembly-CSharp.dll</HintPath>
 			<Private>False</Private>
 		</Reference>
-
-		<!-- *Uncomment for Harmony*-->
-		<!-- <Reference Include="../../../../../../steamapps/workshop/content/294100/2009463077/Current/Assemblies/0Harmony.dll">
+		<Reference Include="Verse">
+			<HintPath>$(RimWorldPath)/Verse.dll</HintPath>
 			<Private>False</Private>
-		</Reference> -->
+		</Reference>
+		<Reference Include="UnityEngine">
+			<HintPath>$(RimWorldPath)/UnityEngine.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="UnityEngine.CoreModule">
+			<HintPath>$(RimWorldPath)/UnityEngine.CoreModule.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="UnityEngine.IMGUIModule">
+			<HintPath>$(RimWorldPath)/UnityEngine.IMGUIModule.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+	
+		<!-- Harmony library -->
+		<Reference Include="0Harmony">
+			<HintPath>G:/SteamLibrary/steamapps/workshop/content/294100/2009463077/Current/Assemblies/0Harmony.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
 	</ItemGroup>
 </Project>
