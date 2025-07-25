@@ -10,9 +10,9 @@ namespace ConsolidatedMods.Textures
     [StaticConstructorOnStartup]
     internal class PowerIndicators
     {
-        private const float IconSize = 32f / 3 * 2;
-        private const float PowerIconOffset = 32f / 3 * 2 / 4 * 3;
-        private const float FuelIconOffset = 32f / 4 * 3;
+        private const float IconSize = 21.33333f;
+        private const float PowerIconOffset = 16f;
+        private const float FuelIconOffset = 24f;
 
         private static readonly Texture2D powerIcon = ContentFinder<Texture2D>.Get(itemPath: "UI/Overlays/NeedsPower");
 
@@ -88,5 +88,4 @@ namespace ConsolidatedMods.Textures
             return fuelDef.graphicData?.texPath ?? fireSubGraphics.RandomElement().path;
         }
     }
-}
 }
