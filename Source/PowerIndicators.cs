@@ -55,10 +55,23 @@ namespace ConsolidatedMods.Textures
                 ThingDef fuelDef = refuelProperties.fuelFilter.AllowedThingDefs.First();
                 string iconPath = GetFuelIconPath(fuelDef);
 
-                if (!fuelIcon.ContainsKey(key: iconPath))
-                    fuelIcon.Add(key: iconPath, value: ContentFinder<Texture2D>.Get(itemPath: iconPath));
+                if (!fuelIcon.ContainsKey(iconPath))
+                {
+                    Texture2D texture = ContentFinder<Texture2D>.Get(itemPath: iconPath, reportFailure: false);
+                    if (texture != null)
+                    {
+                        fuelIcon.Add(iconPath, texture);
+                    }
+                    else
+                    {
+                        Log.Warning($"PowerIndicators: Fuel icon texture not found for path '{iconPath}'.");
+                    }
+                }
 
-                GUI.DrawTexture(new Rect(x: topLeft.x + __instance.GetWidth(maxWidth: float.MaxValue) - FuelIconOffset, y: topLeft.y, width: IconSize, height: IconSize), image: fuelIcon[iconPath], ScaleMode.ScaleToFit);
+                if (fuelIcon.TryGetValue(iconPath, out Texture2D fuelTexture) && fuelTexture != null)
+                {
+                    GUI.DrawTexture(new Rect(x: topLeft.x + __instance.GetWidth(maxWidth: float.MaxValue) - FuelIconOffset, y: topLeft.y, width: IconSize, height: IconSize), image: fuelTexture, ScaleMode.ScaleToFit);
+                }
             }
         }
 
