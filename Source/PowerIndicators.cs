@@ -19,6 +19,7 @@ namespace ConsolidatedMods.Textures
         private static readonly Dictionary<string, Texture2D> fuelIcon = new Dictionary<string, Texture2D>();
 
         private static Graphic[] fireSubGraphics;
+        private static Dictionary<Graphic_Collection, Graphic[]> cachedSubGraphics = new Dictionary<Graphic_Collection, Graphic[]>();
         static PowerIndicators()
 
         {
@@ -81,7 +82,7 @@ namespace ConsolidatedMods.Textures
                 }
                 else
                 {
-                    Log.Warning($"PowerIndicators: Fuel icon texture not found for path '{iconPath}'.");
+                    Log.Warning($"PowerIndicators: Fuel icon texture not found for path '{iconPath}'. This warning will not be displayed again.");
                 }
             }
 
@@ -103,7 +104,17 @@ namespace ConsolidatedMods.Textures
             Graphic fuelGraphic = fuelDef.graphic;
 
             if (fuelGraphic is Graphic_Collection graphicCollection)
-                return Traverse.Create(root: graphicCollection).Field(name: "subGraphics").GetValue<Graphic[]>().Last().path;
+            {
+                if (!cachedSubGraphics.TryGetValue(graphicCollection, out Graphic[] subGraphics))
+                {
+                    subGraphics = Traverse.Create(root: graphicCollection).Field(name: "subGraphics").GetValue<Graphic[]>();
+                    cachedSubGraphics[graphicCollection] = subGraphics;
+                }
+
+                if (subGraphics != null && subGraphics.Length > 0)
+                    return subGraphics.Last().path;
+            }
+
 
             if (!fuelGraphic.path.NullOrEmpty())
                 return fuelGraphic.path;
