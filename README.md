@@ -28,9 +28,9 @@ Rest assured, it changes absolutely nothing about the gameplay itself. It's all 
 List of changes and additions made by this mod, with a link to the (original !) mods where I got the idea from.
 
 - Power Indicators
-- Animal Variety Coats
 - CCP Stone tweaks
 - Selected Reconnector
+- no power wires
 - Auto Links
 - Epitaph
 - No headstone till burried
@@ -56,7 +56,6 @@ List of changes and additions made by this mod, with a link to the (original !) 
 - Perishable category
 - Hold Fire Indicator
 - Prisoner Defaults (policies)
-- no power wires
 - snowy trees
 - HD pawn
 - quality colors
