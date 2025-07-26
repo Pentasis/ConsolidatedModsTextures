@@ -28,23 +28,23 @@
 
 		<!-- RimWorld core assemblies -->
 		<Reference Include="Assembly-CSharp">
-			<HintPath>$(RimWorldPath)/Assembly-CSharp.dll</HintPath>
+			<HintPath>../../Reference/RimWorld/RimWorldWin64_Data/Managed/Assembly-CSharp.dll</HintPath>
 			<Private>False</Private>
 		</Reference>
 		<Reference Include="Verse">
-			<HintPath>$(RimWorldPath)/Verse.dll</HintPath>
+			<HintPath>../../Reference/RimWorld/RimWorldWin64_Data/Managed/Verse.dll</HintPath>
 			<Private>False</Private>
 		</Reference>
 		<Reference Include="UnityEngine">
-			<HintPath>$(RimWorldPath)/UnityEngine.dll</HintPath>
+			<HintPath>../../Reference/RimWorld/RimWorldWin64_Data/Managed/UnityEngine.dll</HintPath>
 			<Private>False</Private>
 		</Reference>
 		<Reference Include="UnityEngine.CoreModule">
-			<HintPath>$(RimWorldPath)/UnityEngine.CoreModule.dll</HintPath>
+			<HintPath>../../Reference/RimWorld/RimWorldWin64_Data/Managed/UnityEngine.CoreModule.dll</HintPath>
 			<Private>False</Private>
 		</Reference>
 		<Reference Include="UnityEngine.IMGUIModule">
-			<HintPath>$(RimWorldPath)/UnityEngine.IMGUIModule.dll</HintPath>
+			<HintPath>../../Reference/RimWorld/RimWorldWin64_Data/Managed/UnityEngine.IMGUIModule.dll</HintPath>
 			<Private>False</Private>
 		</Reference>
 
