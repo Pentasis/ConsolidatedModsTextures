@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<Operation Class="XmlExtensions.UseSettings">
+		<keys>
+			<li>SandstoneColor</li>
+			<li>GraniteColor</li>
+			<li>LimestoneColor</li>
+			<li>SlateColor</li>
+			<li>MarbleColor</li>
+		</keys>
+		<defaultValues>
+			<li>87,71,63</li>
+			<li>75,84,92</li>
+			<li>232,225,202</li>
+			<li>64,64,64</li>
+			<li>255,255,255</li>
+		</defaultValues>
+		<apply>
+			<li Class="PatchOperationReplace">
+				<xpath>*/TerrainDef[defName = "Tile_TotemicSandstone"]/color</xpath>
+				<value>
+					<color>({SandstoneColor})</color>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/TerrainDef[defName = "Tile_SpikecoreSandstone"]/color</xpath>
+				<value>
+					<color>({SandstoneColor})</color>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/TerrainDef[defName = "Tile_MorbidSandstone"]/color</xpath>
+				<value>
+					<color>({SandstoneColor})</color>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/TerrainDef[defName = "Tile_SpikecoreGranite"]/color</xpath>
+				<value>
+					<color>({GraniteColor})</color>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/TerrainDef[defName = "Tile_TotemicGranite"]/color</xpath>
+				<value>
+					<color>({GraniteColor})</color>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/TerrainDef[defName = "Tile_MorbidGranite"]/color</xpath>
+				<value>
+					<color>({GraniteColor})</color>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/TerrainDef[defName = "Tile_SpikecoreLimestone"]/color</xpath>
+				<value>
+					<color>({LimestoneColor})</color>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/TerrainDef[defName = "Tile_TotemicLimestone"]/color</xpath>
+				<value>
+					<color>({LimestoneColor})</color>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/TerrainDef[defName = "Tile_MorbidLimestone"]/color</xpath>
+				<value>
+					<color>({LimestoneColor})</color>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/TerrainDef[defName = "Tile_SpikecoreSlate"]/color</xpath>
+				<value>
+					<color>({SlateColor})</color>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/TerrainDef[defName = "Tile_TotemicSlate"]/color</xpath>
+				<value>
+					<color>({SlateColor})</color>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/TerrainDef[defName = "Tile_MorbidSlate"]/color</xpath>
+				<value>
+					<color>({SlateColor})</color>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/TerrainDef[defName = "Tile_SpikecoreMarble"]/color</xpath>
+				<value>
+					<color>({MarbleColor})</color>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/TerrainDef[defName = "Tile_TotemicMarble"]/color</xpath>
+				<value>
+					<color>({MarbleColor})</color>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/TerrainDef[defName = "Tile_MorbidMarble"]/color</xpath>
+				<value>
+					<color>({MarbleColor})</color>
+				</value>
+			</li>
+		</apply>
+	</Operation>
+</Patch>

@@ -4,7 +4,7 @@ Add an indicator on Building-Gizmos when that building needs power or fuel.
 
 ### Stonecolour tweaks
 Original by cucumpear (link)
-Some small tweaks to the vanilla stones (granite, slate etc.) to make them more beautiful.
+Some small tweaks to the vanilla stones (granite, slate etc.) to add some constrast.
 
 
 - Selected Reconnector
