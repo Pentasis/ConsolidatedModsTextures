@@ -14,7 +14,9 @@ Adds a bit of "depth" to rockfaces
 Original by tiagocc0 (JustStoneTile)
 Changes the stone tile floors too be more rustic and less clean.
 
-
+### Scattered Stones
+Original by Owlchemist (Scattered Stones)
+Adds a few -purely visual- artefacts around stones and mountains.
 
 
 - Selected Reconnector
