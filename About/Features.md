@@ -10,6 +10,12 @@ Some small tweaks to the vanilla stones (granite, slate etc.) to add some constr
 Original by Visandar The Unliving (Visandars Rocks and Stones)
 Adds a bit of "depth" to rockfaces
 
+### More rustic Stone tiles
+Original by tiagocc0 (JustStoneTile)
+Changes the stone tile floors too be more rustic and less clean.
+
+
+
 
 - Selected Reconnector
 - no power wires
@@ -25,7 +31,6 @@ Adds a bit of "depth" to rockfaces
 - Organs are labelled
 - Clean textures (+ less glare)
 - Better looking plants
-- Just stone tile
 - FX:: vapor
 - FX:: flames
 - FX: splashes
