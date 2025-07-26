@@ -22,11 +22,12 @@
 			<displayName>XML Extensions</displayName>
 			<steamWorkshopUrl>steam://url/CommunityFilePage/2574315206</steamWorkshopUrl>
 			<downloadUrl>https://github.com/15adhami/XmlExtensions/releases</downloadUrl>
-		 </li>
+		</li>
 	</modDependencies>
 	<incompatibleWith>
 		<li>erdelf.PowerIndicators</li>
 		<li>cucumpear.stonetweaks</li>
 		<li>cucumpear.stonetweaksvanilla</li>
+		<li>VIS.RocksAndStones</li>
 	</incompatibleWith>
 </ModMetaData>

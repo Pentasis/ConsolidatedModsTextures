@@ -16,14 +16,16 @@
 		<DebugSymbols>false</DebugSymbols>
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 
-		<RimWorldPath Condition="'$(RimWorldPath)' == '' AND '$(OS)' == 'Windows_NT'">G:/SteamLibrary/steamapps/common/RimWorld/RimWorldWin64_Data/Managed</RimWorldPath>
-        <!-- <RimWorldPath Condition="'$(RimWorldPath)' == '' AND '$(OS)' != 'Windows_NT'">../../../RimWorldLinux_Data/Managed</RimWorldPath> -->
+		<RimWorldPath Condition="'$(RimWorldPath)' == '' AND '$(OS)' == 'Windows_NT'">
+			../../Reference/RimWorld/RimWorldWin64_Data/Managed</RimWorldPath>
+		<!-- <RimWorldPath Condition="'$(RimWorldPath)' == '' AND '$(OS)' !=
+		'Windows_NT'">../../../RimWorldLinux_Data/Managed</RimWorldPath> -->
 	</PropertyGroup>
 
 	<ItemGroup>
 		<!-- Mod source files -->
 		<Compile Include="../Source/*" />
-	
+
 		<!-- RimWorld core assemblies -->
 		<Reference Include="Assembly-CSharp">
 			<HintPath>$(RimWorldPath)/Assembly-CSharp.dll</HintPath>
@@ -45,10 +47,10 @@
 			<HintPath>$(RimWorldPath)/UnityEngine.IMGUIModule.dll</HintPath>
 			<Private>False</Private>
 		</Reference>
-	
+
 		<!-- Harmony library -->
 		<Reference Include="0Harmony">
-			<HintPath>G:/SteamLibrary/steamapps/workshop/content/294100/2009463077/Current/Assemblies/0Harmony.dll</HintPath>
+			<HintPath>../../Reference/294100/2009463077/Current/Assemblies/0Harmony.dll</HintPath>
 			<Private>False</Private>
 		</Reference>
 	</ItemGroup>

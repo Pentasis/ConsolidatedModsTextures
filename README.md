@@ -23,6 +23,8 @@ This module is all about the visuals. A fresh coat of paint for your colony. It 
 
 Rest assured, it changes absolutely nothing about the gameplay itself. It's all sizzle and no steak, by design!
 
+NOTE: This module is not published on the STeam Workshop because unlike the other moodules, this one does contain work made by others I just copy-pasted.
+
 ## Features
 
 List of changes and additions made by this mod, with a link to the (original !) mods where I got the idea from.

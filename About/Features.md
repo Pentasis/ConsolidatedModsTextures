@@ -6,6 +6,10 @@ Add an indicator on Building-Gizmos when that building needs power or fuel.
 Original by cucumpear (link)
 Some small tweaks to the vanilla stones (granite, slate etc.) to add some constrast.
 
+### Mountain texture tweak
+Original by Visandar The Unliving (Visandars Rocks and Stones)
+Adds a bit of "depth" to rockfaces
+
 
 - Selected Reconnector
 - no power wires
@@ -20,10 +24,8 @@ Some small tweaks to the vanilla stones (granite, slate etc.) to add some constr
 - Parka retuxture
 - Organs are labelled
 - Clean textures (+ less glare)
-- Rocks & Stones
 - Better looking plants
 - Just stone tile
-- Save storage etc.
 - FX:: vapor
 - FX:: flames
 - FX: splashes
