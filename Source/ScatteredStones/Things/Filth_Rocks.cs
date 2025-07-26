@@ -2,14 +2,28 @@ using RimWorld;
 using UnityEngine;
 using Verse;
 using System.Diagnostics;
-using static ConsolidatedMods.Textures.ScatteredStonesUtility;
-using static ConsolidatedMods.Textures.ResourceBank.ThingDefOf;
+using static ScatteredStones.ScatteredStonesUtility;
+using static ScatteredStones.ResourceBank.ThingDefOf;
+// NOTE: This custom filth class is designed for mod compatibility and safety.
+// - All Thing and Def accesses are null-checked where possible.
+// - No static state is shared outside the mod.
+// - All user-facing strings should be localized.
 
-namespace ConsolidatedMods.Textures
+namespace ConsolidatedMods.Textures.ScatteredStones
 {
-    //Normally you can't recolor filth because it doesn't support ThingComps. This derived class only exists to allow dynamic colors.
+    /// <summary>
+    /// Filth subclass for rocks, allowing dynamic color and custom behavior.
+    /// </summary>
     public class Rocks : Filth
     {
+        /// <summary>
+        /// The color used for drawing this filth.
+        /// </summary>
+        private Color color;
+
+        /// <summary>
+        /// Gets or sets the draw color for this filth.
+        /// </summary>
         public override Color DrawColor
         {
             get
@@ -20,14 +34,20 @@ namespace ConsolidatedMods.Textures
             set { this.color = value; }
         }
 
-        private Color color;
-
+        /// <summary>
+        /// Exposes the color data for save/load.
+        /// </summary>
         public override void ExposeData()
         {
             base.ExposeData();
             Scribe_Values.Look<Color>(ref this.color, "color", ChunkGranite.graphicData.color, false);
         }
 
+        /// <summary>
+        /// Matches the color of a given thing, or finds a nearby chunk to match if null.
+        /// </summary>
+        /// <param name="matchToThis">The thing to match color to, or null.</param>
+        /// <returns>The matched color.</returns>
         public Color MatchColor(Thing matchToThis)
         {
             if (matchToThis != null)
@@ -47,28 +67,16 @@ namespace ConsolidatedMods.Textures
                     }
                 }
             }
-            //Default
+            // Default
             return ChunkGranite.graphicData.color;
         }
 
+        /// <summary>
+        /// Destroys the filth. (Custom logic for neverDespawn removed as settings are gone.)
+        /// </summary>
+        /// <param name="mode">The destroy mode.</param>
         public override void Destroy(DestroyMode mode = DestroyMode.Vanish)
         {
-            //This happens when filth despawns due to age, but we reset its timer if it's still underneath a rock
-            if (false && this.TicksSinceThickened >= this.DisappearAfterTicks)
-            {
-                var list = this.Map.thingGrid.ThingsListAtFast(this.Position);
-                var length = list.Count;
-                for (int i = 0; i < length; i++)
-                {
-                    var item = list[i];
-                    //Reset if true
-                    if (stoneChunks.Contains(item.def.index) || stoneCliff.Contains(item.def.index))
-                    {
-                        this.ThickenFilth();
-                        return;
-                    }
-                }
-            }
             base.Destroy(mode);
         }
     }
