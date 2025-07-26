@@ -20,7 +20,7 @@ namespace ConsolidatedMods.Textures.ScatteredStones
     /// Resets the filth timer under mineables when mined to prevent immediate despawn.
     /// </summary>
     [HarmonyPatch(typeof(Mineable), nameof(Mineable.DestroyMined))]
-    public class Patch_Destroy
+    public class DestroyMineablePatch
     {
         public static void Prefix(Mineable __instance)
         {
@@ -40,7 +40,7 @@ namespace ConsolidatedMods.Textures.ScatteredStones
     /// Cleans up unreachable filth after a new building is spawned.
     /// </summary>
     [HarmonyPatch(typeof(Building), nameof(Building.SpawnSetup))]
-    public class Patch_SpawnSetup
+    public class BuildingSpawnSetupPatch
     {
         public static void Postfix(Map map, Building __instance)
         {
@@ -62,7 +62,7 @@ namespace ConsolidatedMods.Textures.ScatteredStones
     /// Places filth under mined objects if appropriate.
     /// </summary>
     [HarmonyPatch(typeof(Mineable), nameof(Mineable.TrySpawnYield), new System.Type[] { typeof(Map), typeof(bool), typeof(Pawn) })]
-    public class Patch_TrySpawnYield
+    public class MineableTrySpawnYieldPatch
     {
         public static void Postfix(Mineable __instance, Map map)
         {

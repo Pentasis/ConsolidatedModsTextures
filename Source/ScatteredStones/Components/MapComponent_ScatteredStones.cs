@@ -15,22 +15,22 @@ namespace ConsolidatedMods.Textures.ScatteredStones
     /// <summary>
     /// Map component for handling scattered stones initialization per map.
     /// </summary>
-    public class MapComponent_ScatteredStones : MapComponent
+    public class ScatteredStonesMapComponent : MapComponent
     {
-        private bool hasAppliedStones = false;
+        private bool _hasAppliedStones = false;
 
         /// <summary>
         /// Constructor for the map component.
         /// </summary>
-        /// <param name="map">The map instance.</param>
-        public MapComponent_ScatteredStones(Map map) : base(map) { }
+        /// <param name="mapInstance">The map instance.</param>
+        public ScatteredStonesMapComponent(Map mapInstance) : base(mapInstance) { }
 
         /// <summary>
         /// Exposes the state for save/load.
         /// </summary>
         public override void ExposeData()
         {
-            Scribe_Values.Look<bool>(ref this.hasAppliedStones, "hasAppliedStones", false, false);
+            Scribe_Values.Look(ref _hasAppliedStones, "hasAppliedStones", false, false);
         }
 
         /// <summary>
@@ -38,31 +38,31 @@ namespace ConsolidatedMods.Textures.ScatteredStones
         /// </summary>
         public override void FinalizeInit()
         {
-            if (!hasAppliedStones)
+            if (!_hasAppliedStones)
             {
-                var list = map.listerThings.AllThings;
-                var length = list.Count;
-                for (int i = 0; i < length; i++)
+                var allThings = map.listerThings.AllThings;
+                int thingCount = allThings.Count;
+                for (int i = 0; i < thingCount; i++)
                 {
-                    var thing = list[i];
+                    var thing = allThings[i];
                     if
                     (
                         // Is stone chunk, and not in storage? && Is on water and allowed?
-                        (!thing.IsInAnyStorage() && stoneChunks.Contains(thing.def.index) && (true || (!map.terrainGrid.TerrainAt(thing.Position)?.IsWater ?? false))) ||
+                        (!thing.IsInAnyStorage() && ScatteredStonesUtility.StoneChunksSet.Contains(thing.def.index) && (true || (!map.terrainGrid.TerrainAt(thing.Position)?.IsWater ?? false))) ||
                         // Is reachable cliff that's not fogged?
-                        (stoneCliff.Contains(thing.def.index) && !thing.Fogged() && ValidateCell(thing.Position, map, false)) &&
+                        (ScatteredStonesUtility.StoneCliffSet.Contains(thing.def.index) && !thing.Fogged() && ScatteredStonesUtility.ValidateCell(thing.Position, map, false)) &&
                         // Is not along the map edge?
                         !CellRect.WholeMap(map).IsOnEdge(thing.positionInt)
                     )
                     {
-                        Thing rocks = ThingMaker.MakeThing(Owl_Filth_Rocks, null);
+                        Thing filthRocks = ThingMaker.MakeThing(ResourceBank.ThingDefOf.Owl_Filth_Rocks, null);
                         // Place underneath chunk
-                        GenPlace.TryPlaceThing(rocks, thing.Position, map, ThingPlaceMode.Direct);
+                        GenPlace.TryPlaceThing(filthRocks, thing.Position, map, ThingPlaceMode.Direct);
                         // Match color
-                        rocks.DrawColor = ((Rocks)rocks).MatchColor(thing);
+                        filthRocks.DrawColor = ((Rocks)filthRocks).MatchColor(thing);
                     }
                 }
-                hasAppliedStones = true;
+                _hasAppliedStones = true;
             }
         }
     }

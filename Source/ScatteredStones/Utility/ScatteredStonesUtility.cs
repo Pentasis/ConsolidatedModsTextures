@@ -40,8 +40,8 @@ namespace ConsolidatedMods.Textures.ScatteredStones
         /// <summary>
         /// Set of ThingDef indices for stone chunks.
         /// </summary>
-        public static readonly HashSet<ushort> stoneChunks = new HashSet<ushort>();
-        public static readonly HashSet<ushort> stoneCliff = new HashSet<ushort>();
+        public static readonly HashSet<ushort> StoneChunksSet = new HashSet<ushort>();
+        public static readonly HashSet<ushort> StoneCliffSet = new HashSet<ushort>();
 
         /// <summary>
         /// Initializes the stone chunk and cliff sets from all ThingDefs.
@@ -51,33 +51,33 @@ namespace ConsolidatedMods.Textures.ScatteredStones
             foreach (ThingDef thingDef in DefDatabase<ThingDef>.AllDefsListForReading)
             {
                 if (thingDef == null) continue;
-                if (thingDef.thingCategories?.Contains(StoneChunks) ?? false) stoneChunks.Add(thingDef.index);
-                else if ((thingDef.building?.isNaturalRock ?? false) && !thingDef.building.isResourceRock) stoneCliff.Add(thingDef.index);
+                if (thingDef.thingCategories?.Contains(ResourceBank.ThingCategoryDefOf.StoneChunks) ?? false) StoneChunksSet.Add(thingDef.index);
+                else if ((thingDef.building?.isNaturalRock ?? false) && !thingDef.building.isResourceRock) StoneCliffSet.Add(thingDef.index);
             }
             UpdateModifiers();
         }
 
         /// <summary>
-        /// Updates the modified size and offset values for all RandomDraw mod extensions.
+        /// Updates the modified size and offset values for all RandomDrawExtension mod extensions.
         /// </summary>
         public static void UpdateModifiers()
         {
             foreach (var def in DefDatabase<ThingDef>.AllDefsListForReading)
             {
                 if (def == null) continue;
-                RandomDraw modX = def.GetModExtension<RandomDraw>();
-                if (modX == null) continue;
+                RandomDrawExtension extension = def.GetModExtension<RandomDrawExtension>();
+                if (extension == null) continue;
 
-                modX.minSizeModified = modX.minSize * 1f;
-                modX.maxSizeModified = Mathf.Clamp(modX.maxSize * 1f, modX.minSizeModified, 10);
-                modX.offsetRangeModified = modX.offsetRange * 1f;
+                extension.MinSizeModified = extension.MinSize * 1f;
+                extension.MaxSizeModified = Mathf.Clamp(extension.MaxSize * 1f, extension.MinSizeModified, 10);
+                extension.OffsetRangeModified = extension.OffsetRange * 1f;
             }
         }
 
         /// <summary>
         /// Validates a cell for filth placement and optionally cleans up unreachable filth.
         /// </summary>
-        /// <param name="pos">The cell position to validate.</param>
+        /// <param name="cell">The cell position to validate.</param>
         /// <param name="map">The map to check.</param>
         /// <param name="autoClean">If true, will remove filth if the cell is invalid.</param>
         /// <returns>True if the cell is valid for filth, otherwise false.</returns>

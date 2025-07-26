@@ -14,12 +14,12 @@ namespace ConsolidatedMods.Textures.ScatteredStones
     /// <summary>
     /// Filth subclass for rocks, allowing dynamic color and custom behavior.
     /// </summary>
-    public class Rocks : Filth
+    public class FilthRocks : Filth
     {
         /// <summary>
         /// The color used for drawing this filth.
         /// </summary>
-        private Color color;
+        private Color _drawColor;
 
         /// <summary>
         /// Gets or sets the draw color for this filth.
@@ -28,10 +28,10 @@ namespace ConsolidatedMods.Textures.ScatteredStones
         {
             get
             {
-                if (this.color.a == 0f) this.color = this.MatchColor(null);
-                return this.color;
+                if (_drawColor.a == 0f) _drawColor = this.MatchColor(null);
+                return _drawColor;
             }
-            set { this.color = value; }
+            set { _drawColor = value; }
         }
 
         /// <summary>
@@ -40,7 +40,7 @@ namespace ConsolidatedMods.Textures.ScatteredStones
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.Look<Color>(ref this.color, "color", ChunkGranite.graphicData.color, false);
+            Scribe_Values.Look(ref _drawColor, "color", ResourceBank.ThingDefOf.ChunkGranite.graphicData.color, false);
         }
 
         /// <summary>
@@ -48,27 +48,27 @@ namespace ConsolidatedMods.Textures.ScatteredStones
         /// </summary>
         /// <param name="matchToThis">The thing to match color to, or null.</param>
         /// <returns>The matched color.</returns>
-        public Color MatchColor(Thing matchToThis)
+        public Color MatchColor(Thing thingToMatch)
         {
-            if (matchToThis != null)
+            if (thingToMatch != null)
             {
-                return matchToThis.DrawColor;
+                return thingToMatch.DrawColor;
             }
             else if (this.positionInt != IntVec3.Invalid)
             {
-                var list = this.Map.thingGrid.ThingsListAtFast(this.Position);
-                var length = list.Count;
-                for (int i = 0; i < length; i++)
+                var thingsAtCell = this.Map.thingGrid.ThingsListAtFast(this.Position);
+                int count = thingsAtCell.Count;
+                for (int i = 0; i < count; i++)
                 {
-                    var item = list[i];
-                    if (stoneChunks.Contains(item.def.index))
+                    var thing = thingsAtCell[i];
+                    if (ScatteredStonesUtility.StoneChunksSet.Contains(thing.def.index))
                     {
-                        return item.DrawColor;
+                        return thing.DrawColor;
                     }
                 }
             }
             // Default
-            return ChunkGranite.graphicData.color;
+            return ResourceBank.ThingDefOf.ChunkGranite.graphicData.color;
         }
 
         /// <summary>

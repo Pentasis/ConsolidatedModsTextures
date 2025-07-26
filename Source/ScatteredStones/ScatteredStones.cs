@@ -15,13 +15,13 @@ namespace ConsolidatedMods.Textures.ScatteredStones
     /// <summary>
     /// Main mod class for Scattered Stones. Handles initialization and patching.
     /// </summary>
-    public class Mod_ScatteredStones : Mod
+    public class ScatteredStones : Mod
     {
         /// <summary>
         /// Initializes the mod, applies Harmony patches, and sets up stone data.
         /// </summary>
         /// <param name="content">The mod content pack.</param>
-        public Mod_ScatteredStones(ModContentPack content) : base(content)
+        public ScatteredStones(ModContentPack content) : base(content)
         {
             new Harmony(this.Content.PackageIdPlayerFacing).PatchAll();
             LongEventHandler.QueueLongEvent(() => ScatteredStonesUtility.Setup(), null, false, null);
