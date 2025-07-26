@@ -3,7 +3,6 @@ using RimWorld;
 using System.Collections.Generic;
 using static ConsolidatedMods.Textures.ResourceBank.ThingDefOf;
 using static ConsolidatedMods.Textures.ScatteredStonesUtility;
-using static ConsolidatedMods.Textures.ModSettings_ScatteredStones;
 
 namespace ConsolidatedMods.Textures
 {
@@ -30,7 +29,7 @@ namespace ConsolidatedMods.Textures
                     if
                     (
                         //Is stone chunk, and not in storage? && Is on water and allowed?
-                        (!thing.IsInAnyStorage() && stoneChunks.Contains(thing.def.index) && (allowOnWater || (!map.terrainGrid.TerrainAt(thing.Position)?.IsWater ?? false))) ||
+                        (!thing.IsInAnyStorage() && stoneChunks.Contains(thing.def.index) && (false || (!map.terrainGrid.TerrainAt(thing.Position)?.IsWater ?? false))) ||
                         //Is reachable cliff that's not fogged?
                         (stoneCliff.Contains(thing.def.index) && !thing.Fogged() && ValidateCell(thing.Position, map, false)) &&
                         //Is not along the map edge?

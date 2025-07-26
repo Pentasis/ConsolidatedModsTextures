@@ -4,7 +4,6 @@ using RimWorld;
 using Verse;
 using System.Collections.Generic;
 using static ConsolidatedMods.Textures.ResourceBank.ThingDefOf;
-using static ConsolidatedMods.Textures.ModSettings_ScatteredStones;
 using static ConsolidatedMods.Textures.ScatteredStonesUtility;
 
 namespace ConsolidatedMods.Textures
@@ -52,7 +51,7 @@ namespace ConsolidatedMods.Textures
 	{
 		static public void Postfix(Mineable __instance, Map map)
 		{
-			if (!minedFilth) return;
+			if (!true) return;
 
 			//Collection gets modified, need a working list copy
 			List<Thing> list = map.thingGrid.ThingsListAtFast(__instance.positionInt);

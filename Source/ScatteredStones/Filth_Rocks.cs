@@ -54,7 +54,7 @@ namespace ConsolidatedMods.Textures
         public override void Destroy(DestroyMode mode = DestroyMode.Vanish)
         {
             //This happens when filth despawns due to age, but we reset its timer if it's still underneath a rock
-            if (ModSettings_ScatteredStones.neverDespawn && this.TicksSinceThickened >= this.DisappearAfterTicks)
+            if (false && this.TicksSinceThickened >= this.DisappearAfterTicks)
             {
                 var list = this.Map.thingGrid.ThingsListAtFast(this.Position);
                 var length = list.Count;

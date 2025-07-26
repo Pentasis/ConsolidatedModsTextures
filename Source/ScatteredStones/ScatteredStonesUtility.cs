@@ -1,7 +1,6 @@
 using Verse;
 using UnityEngine;
 using System.Collections.Generic;
-using static ConsolidatedMods.Textures.ModSettings_ScatteredStones;
 using static ConsolidatedMods.Textures.ResourceBank.ThingCategoryDefOf;
 using static ConsolidatedMods.Textures.ResourceBank.ThingDefOf;
 
@@ -18,25 +17,8 @@ namespace ConsolidatedMods.Textures
                 if (thingDef.thingCategories?.Contains(StoneChunks) ?? false) stoneChunks.Add(thingDef.index);
                 else if ((thingDef.building?.isNaturalRock ?? false) && !thingDef.building.isResourceRock) stoneCliff.Add(thingDef.index);
             }
-            UpdateModifiers();
         }
 
-        public static void UpdateModifiers(bool settingsChanged = false)
-        {
-            foreach (var def in DefDatabase<ThingDef>.AllDefsListForReading)
-            {
-                RandomDraw modX = def.GetModExtension<RandomDraw>();
-                if (modX == null) continue;
-
-                modX.minSizeModified = modX.minSize * minScaleModifier;
-                modX.maxSizeModified = Mathf.Clamp(modX.maxSize * maxScaleModifier, modX.minSizeModified, 10);
-                modX.offsetRangeModified = modX.offsetRange * offsetModifier;
-
-                //Let the caches refresh.
-                if (settingsChanged) ((Graphic_RandomSpread)def.graphic).sessionCache.Clear();
-            }
-            /* if (Current.ProgramState == ProgramState.Playing) Find.CurrentMap?.mapDrawer.WholeMapChanged(MapMeshFlag.Things);  */
-        }
 
         public static bool ValidateCell(IntVec3 pos, Map map, bool autoClean = false)
         {
