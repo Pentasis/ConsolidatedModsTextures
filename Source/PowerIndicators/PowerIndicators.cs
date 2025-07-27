@@ -1,11 +1,11 @@
-using RimWorld;
-using Verse;
-using System.Linq;
-using UnityEngine;
-using HarmonyLib;
 using System.Collections.Generic;
+using System.Linq;
+using HarmonyLib;
+using RimWorld;
+using UnityEngine;
+using Verse;
 
-namespace ConsolidatedMods.Textures
+namespace ConsolidatedModsTextures.PowerIndicators
 {
     [StaticConstructorOnStartup]
     internal class PowerIndicators

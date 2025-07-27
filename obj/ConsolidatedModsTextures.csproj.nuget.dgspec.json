@@ -1,0 +1,70 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\bertm\\Projects\\Mods\\Rimworld\\ConsolidatedModsTextures\\ConsolidatedModsTextures.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\bertm\\Projects\\Mods\\Rimworld\\ConsolidatedModsTextures\\ConsolidatedModsTextures.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\bertm\\Projects\\Mods\\Rimworld\\ConsolidatedModsTextures\\ConsolidatedModsTextures.csproj",
+        "projectName": "ConsolidatedModsTextures",
+        "projectPath": "C:\\Users\\bertm\\Projects\\Mods\\Rimworld\\ConsolidatedModsTextures\\ConsolidatedModsTextures.csproj",
+        "packagesPath": "C:\\Users\\bertm\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\bertm\\Projects\\Mods\\Rimworld\\ConsolidatedModsTextures\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "UsingMicrosoftNETSdk": false,
+        "configFilePaths": [
+          "C:\\Users\\bertm\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "dependencies": {
+            "Krafs.Rimworld.Ref": {
+              "include": "Compile, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "target": "Package",
+              "version": "[1.6.4528, )"
+            },
+            "Lib.Harmony": {
+              "include": "Compile, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "target": "Package",
+              "version": "[2.3.6, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-arm64": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}
