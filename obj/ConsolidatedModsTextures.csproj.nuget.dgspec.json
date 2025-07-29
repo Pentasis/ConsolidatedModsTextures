@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bertm\\Projects\\Mods\\Rimworld\\ConsolidatedModsTextures\\ConsolidatedModsTextures.csproj": {}
+    "C:\\Users\\bertm\\Projects\\ConsolidatedModsTextures\\ConsolidatedModsTextures.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bertm\\Projects\\Mods\\Rimworld\\ConsolidatedModsTextures\\ConsolidatedModsTextures.csproj": {
+    "C:\\Users\\bertm\\Projects\\ConsolidatedModsTextures\\ConsolidatedModsTextures.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bertm\\Projects\\Mods\\Rimworld\\ConsolidatedModsTextures\\ConsolidatedModsTextures.csproj",
+        "projectUniqueName": "C:\\Users\\bertm\\Projects\\ConsolidatedModsTextures\\ConsolidatedModsTextures.csproj",
         "projectName": "ConsolidatedModsTextures",
-        "projectPath": "C:\\Users\\bertm\\Projects\\Mods\\Rimworld\\ConsolidatedModsTextures\\ConsolidatedModsTextures.csproj",
+        "projectPath": "C:\\Users\\bertm\\Projects\\ConsolidatedModsTextures\\ConsolidatedModsTextures.csproj",
         "packagesPath": "C:\\Users\\bertm\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bertm\\Projects\\Mods\\Rimworld\\ConsolidatedModsTextures\\obj\\",
+        "outputPath": "C:\\Users\\bertm\\Projects\\ConsolidatedModsTextures\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "UsingMicrosoftNETSdk": false,

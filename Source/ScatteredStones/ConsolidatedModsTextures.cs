@@ -2,14 +2,13 @@ using RimWorld;
 using Verse;
 using static ConsolidatedModsTextures.ScatteredStones.ResourceBank.ThingDefOf;
 using static ConsolidatedModsTextures.ScatteredStones.Utility;
-using static ConsolidatedModsTextures.ScatteredStones.ModSettings_ScatteredStones;
 
 namespace ConsolidatedModsTextures.ScatteredStones
 {
-	public class MapComponent_ScatteredStones : MapComponent
+	public class ConsolidatedModsTextures : MapComponent
 	{
         bool applied = false;
-        public MapComponent_ScatteredStones(Map map) : base(map) {}
+        public ConsolidatedModsTextures(Map map) : base(map) {}
 
         public override void ExposeData()
 		{

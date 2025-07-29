@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5h9AYpJD0g4=",
+  "dgSpecHash": "EwGnKZzbqJY=",
   "success": true,
-  "projectFilePath": "C:\\Users\\bertm\\Projects\\Mods\\Rimworld\\ConsolidatedModsTextures\\ConsolidatedModsTextures.csproj",
+  "projectFilePath": "C:\\Users\\bertm\\Projects\\ConsolidatedModsTextures\\ConsolidatedModsTextures.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bertm\\.nuget\\packages\\krafs.rimworld.ref\\1.6.4528\\krafs.rimworld.ref.1.6.4528.nupkg.sha512",
     "C:\\Users\\bertm\\.nuget\\packages\\lib.harmony\\2.3.6\\lib.harmony.2.3.6.nupkg.sha512"
